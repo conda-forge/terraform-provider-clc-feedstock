@@ -3,18 +3,18 @@
 {% set version = "0.1.0" %}
 
 {% set name = goname.split('/')[-1] %}
+{% set pkg_src = ('gopath/src/'+goname).replace("/",os.sep) %}
 
 {% set x4_plugin = name + '_v' + version + "_x4" %}
-
-{% set sha256 = "5c9c4207c0ca0206eb0d90f7f77dbbe00e91107cafd91d2f62d5f1efbf4d39a1" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://{{ goname }}/archive/v{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  - folder: {{ pkg_src }}
+    url: https://{{ goname }}/archive/v{{ version }}.tar.gz
+    sha256: 5c9c4207c0ca0206eb0d90f7f77dbbe00e91107cafd91d2f62d5f1efbf4d39a1
 
 
 build:
