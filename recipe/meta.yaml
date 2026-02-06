@@ -26,7 +26,7 @@ build:
 
 requirements:
   build:
-    - {{ compiler('go') }}
+    - {{ compiler('go') }} <1.16
 
 test:
   requires:
